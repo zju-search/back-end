@@ -1,0 +1,26 @@
+version: '3'
+services:
+  common:
+    image: java:8
+    container_name: backend-common
+    ports:
+      - "8080:8080"
+    command: /bin/bash -c "java -jar /usr/share/investigation-0.0.1-SNAPSHOT.jar"
+  consumer:
+    image: java:8
+    container_name: backend-consumer
+    ports:
+      - "8080:8080"
+    command: /bin/bash -c "java -jar /usr/share/investigation-0.0.1-SNAPSHOT.jar"
+  user:
+    image: java:8
+    container_name: backend-user
+    ports:
+      - "8080:8080"
+    command: /bin/bash -c "java -jar /usr/share/investigation-0.0.1-SNAPSHOT.jar"
+  gateway:
+    image: java:8
+    container_name: backend-gateway
+    ports:
+      - "9411:9411"
+    command: /bin/bash -c "java -jar /usr/share/investigation-0.0.1-SNAPSHOT.jar"
