@@ -1,4 +1,4 @@
-package com.search.controller;
+package com.search;
 
 import com.search.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;

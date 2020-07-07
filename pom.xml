@@ -10,7 +10,7 @@
         <module>consumer</module>
         <module>gateway</module>
         <module>QueryByCategory</module>
-        <module>GetStockDaily</module>
+        <module>PriceCenter</module>
     </modules>
 
     <parent>
