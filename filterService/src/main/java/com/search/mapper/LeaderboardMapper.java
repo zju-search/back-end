@@ -18,17 +18,12 @@ public interface LeaderboardMapper {
     @Select("select max(ann_date) from ${tableName}")
     String getLatestAnnDate(String tableName);
 
-    @Select("select ts_code,${parameter} from ${tableName} " +
+    @Select("select ts_code,${parameter} as value from ${tableName} " +
             "where trade_date = #{trade_date} order by ${parameter} desc limit 20")
-    @Results({
-            @Result(column = "ts_code",property = "ts_code"),
-            @Result(column = "${parameter}",property = "value")
-
-    })
     List<RankedObject> getTopTwentyStockOnTradeDate(String trade_date,String parameter,String tableName);
 
 
-    @Select("select ts_code,max(${parameter}) as value from ${tableName} " +
+    @Select("select ts_code,max(${parameter}) as value from ${tableName}" +
             "group by ts_code order by max(${parameter}) desc limit 20")
     List<RankedObject> getTopTwentyStock(String parameter,String tableName);
 

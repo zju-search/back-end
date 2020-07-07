@@ -50,7 +50,7 @@ public class LeadorboardController {
                 rankedObjectList.set(i,rankedObject);
             }
         }
-        //排序的依据在stock_daily_basic数据库中
+        //排序的依据在daily_basic数据库中
         else if(type.equals("pe_ttm") || type.equals("pe") || type.equals("dv_radio")
                 || type.equals("ps") || type.equals("total_mv") || type.equals("pb")
                 || type.equals("circ_mv"))
