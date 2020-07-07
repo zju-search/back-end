@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.DailyBasicMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.DailyBasic">
+    <result column="index" jdbcType="BIGINT" property="index" />
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="trade_date" jdbcType="VARCHAR" property="tradeDate" />
+    <result column="close" jdbcType="DOUBLE" property="close" />
+    <result column="turnover_rate" jdbcType="DOUBLE" property="turnoverRate" />
+    <result column="turnover_rate_f" jdbcType="DOUBLE" property="turnoverRateF" />
+    <result column="volume_ratio" jdbcType="DOUBLE" property="volumeRatio" />
+    <result column="pe" jdbcType="DOUBLE" property="pe" />
+    <result column="pe_ttm" jdbcType="DOUBLE" property="peTtm" />
+    <result column="pb" jdbcType="DOUBLE" property="pb" />
+    <result column="ps" jdbcType="DOUBLE" property="ps" />
+    <result column="ps_ttm" jdbcType="DOUBLE" property="psTtm" />
+    <result column="dv_ratio" jdbcType="DOUBLE" property="dvRatio" />
+    <result column="dv_ttm" jdbcType="DOUBLE" property="dvTtm" />
+    <result column="total_share" jdbcType="DOUBLE" property="totalShare" />
+    <result column="float_share" jdbcType="DOUBLE" property="floatShare" />
+    <result column="free_share" jdbcType="DOUBLE" property="freeShare" />
+    <result column="total_mv" jdbcType="DOUBLE" property="totalMv" />
+    <result column="circ_mv" jdbcType="DOUBLE" property="circMv" />
+  </resultMap>
+
+  <select id="selectByTscode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select *
+    from daily_basic
+    where ts_code = #{tscode,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.DailyBasic">
+    insert into daily_basic (`index`, ts_code, trade_date, 
+      `close`, turnover_rate, turnover_rate_f, 
+      volume_ratio, pe, pe_ttm, 
+      pb, ps, ps_ttm, dv_ratio, 
+      dv_ttm, total_share, float_share, 
+      free_share, total_mv, circ_mv
+      )
+    values (#{index,jdbcType=BIGINT}, #{tsCode,jdbcType=VARCHAR}, #{tradeDate,jdbcType=VARCHAR}, 
+      #{close,jdbcType=DOUBLE}, #{turnoverRate,jdbcType=DOUBLE}, #{turnoverRateF,jdbcType=DOUBLE}, 
+      #{volumeRatio,jdbcType=DOUBLE}, #{pe,jdbcType=DOUBLE}, #{peTtm,jdbcType=DOUBLE}, 
+      #{pb,jdbcType=DOUBLE}, #{ps,jdbcType=DOUBLE}, #{psTtm,jdbcType=DOUBLE}, #{dvRatio,jdbcType=DOUBLE}, 
+      #{dvTtm,jdbcType=DOUBLE}, #{totalShare,jdbcType=DOUBLE}, #{floatShare,jdbcType=DOUBLE}, 
+      #{freeShare,jdbcType=DOUBLE}, #{totalMv,jdbcType=DOUBLE}, #{circMv,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.DailyBasic">
+    insert into daily_basic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        `index`,
+      </if>
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="tradeDate != null">
+        trade_date,
+      </if>
+      <if test="close != null">
+        `close`,
+      </if>
+      <if test="turnoverRate != null">
+        turnover_rate,
+      </if>
+      <if test="turnoverRateF != null">
+        turnover_rate_f,
+      </if>
+      <if test="volumeRatio != null">
+        volume_ratio,
+      </if>
+      <if test="pe != null">
+        pe,
+      </if>
+      <if test="peTtm != null">
+        pe_ttm,
+      </if>
+      <if test="pb != null">
+        pb,
+      </if>
+      <if test="ps != null">
+        ps,
+      </if>
+      <if test="psTtm != null">
+        ps_ttm,
+      </if>
+      <if test="dvRatio != null">
+        dv_ratio,
+      </if>
+      <if test="dvTtm != null">
+        dv_ttm,
+      </if>
+      <if test="totalShare != null">
+        total_share,
+      </if>
+      <if test="floatShare != null">
+        float_share,
+      </if>
+      <if test="freeShare != null">
+        free_share,
+      </if>
+      <if test="totalMv != null">
+        total_mv,
+      </if>
+      <if test="circMv != null">
+        circ_mv,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        #{index,jdbcType=BIGINT},
+      </if>
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeDate != null">
+        #{tradeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="close != null">
+        #{close,jdbcType=DOUBLE},
+      </if>
+      <if test="turnoverRate != null">
+        #{turnoverRate,jdbcType=DOUBLE},
+      </if>
+      <if test="turnoverRateF != null">
+        #{turnoverRateF,jdbcType=DOUBLE},
+      </if>
+      <if test="volumeRatio != null">
+        #{volumeRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="pe != null">
+        #{pe,jdbcType=DOUBLE},
+      </if>
+      <if test="peTtm != null">
+        #{peTtm,jdbcType=DOUBLE},
+      </if>
+      <if test="pb != null">
+        #{pb,jdbcType=DOUBLE},
+      </if>
+      <if test="ps != null">
+        #{ps,jdbcType=DOUBLE},
+      </if>
+      <if test="psTtm != null">
+        #{psTtm,jdbcType=DOUBLE},
+      </if>
+      <if test="dvRatio != null">
+        #{dvRatio,jdbcType=DOUBLE},
+      </if>
+      <if test="dvTtm != null">
+        #{dvTtm,jdbcType=DOUBLE},
+      </if>
+      <if test="totalShare != null">
+        #{totalShare,jdbcType=DOUBLE},
+      </if>
+      <if test="floatShare != null">
+        #{floatShare,jdbcType=DOUBLE},
+      </if>
+      <if test="freeShare != null">
+        #{freeShare,jdbcType=DOUBLE},
+      </if>
+      <if test="totalMv != null">
+        #{totalMv,jdbcType=DOUBLE},
+      </if>
+      <if test="circMv != null">
+        #{circMv,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>
