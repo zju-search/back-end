@@ -7,11 +7,11 @@ import java.io.Serializable;
 @Data
 public class StockInfo implements Serializable {
 
-    private String ts_code;
+    private String tsCode;
 
     private String name;
 
-    private double current_price;
+    private double currentPrice;
 
     private double change;
 
@@ -19,8 +19,7 @@ public class StockInfo implements Serializable {
 
     private double close;
 
-    private double pct_chg;
-
+    private double pctChg;
 
     private static final long serialVersionUID = 1L;
 }

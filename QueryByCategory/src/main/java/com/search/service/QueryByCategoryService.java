@@ -1,10 +1,11 @@
 package com.search.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.search.model.StockInfo;
 
 import java.util.List;
 
 public interface QueryByCategoryService {
 
-    List<StockInfo> SelectByMarket(String market);
+    JSONObject SelectByMarket(int market);
 }

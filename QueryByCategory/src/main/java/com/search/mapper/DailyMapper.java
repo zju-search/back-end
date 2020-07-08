@@ -1,10 +1,15 @@
 package com.search.mapper;
 
 import com.search.model.Daily;
+import com.search.model.StockInfo;
+
+import java.util.List;
 
 public interface DailyMapper {
 
-    Daily selectByTscode(String tscode);
+    String GetMaxDate();
+
+    List<StockInfo> SelectByMarket(String market, String date);
 
     int insert(Daily record);
 

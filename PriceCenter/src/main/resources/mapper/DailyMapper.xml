@@ -37,7 +37,7 @@
 
   <select id="SelectByDate" resultMap="StockInfoMap" parameterType="java.lang.String">
     select ddb.ts_code, `name`, `amount`, `close` from
-    (select ts_code, `name` from stock_list) `info` join
+    (select ts_code, `name` from stock_list limit 1000) `info` join
     (select `ts_code`, `amount`, `close` from `daily` where trade_date = #{date,jdbcType=VARCHAR}) ddb
      on ddb.`ts_code` = `info`.`ts_code`;
   </select>

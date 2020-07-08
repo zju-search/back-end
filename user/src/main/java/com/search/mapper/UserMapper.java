@@ -1,8 +1,15 @@
 package com.search.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.search.model.User;
 
-@Mapper
 public interface UserMapper {
+    User selectByName(String name);
 
+    User selectByEmail(String email);
+
+    int updateByEmail(User record);
+
+    int insert(User record);
+
+    int insertSelective(User record);
 }

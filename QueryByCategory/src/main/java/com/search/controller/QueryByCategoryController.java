@@ -1,5 +1,6 @@
 package com.search.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.search.model.StockInfo;
 import com.search.model.StockList;
 import com.search.service.QueryByCategoryService;
@@ -21,7 +22,7 @@ public class QueryByCategoryController {
     QueryByCategoryService queryByCategoryService;
 
     @RequestMapping(value = "/getStocksbyMarket", method = RequestMethod.GET)
-    public List<StockInfo> getStockByMarket(@RequestParam(name = "market") String market) {
+    public JSONObject getStockByMarket(@RequestParam(name = "market_index") int market) {
 
         return queryByCategoryService.SelectByMarket(market);
     }
