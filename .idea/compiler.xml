@@ -2,7 +2,6 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -11,24 +10,20 @@
         <module name="gateway" />
         <module name="common" />
         <module name="stock" />
-        <module name="querybycategory" />
+        <module name="ESearch" />
         <module name="consumer" />
-        <module name="PriceCenter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="getStockDaily" target="1.8" />
       <module name="stock" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="PriceCenter" options="-parameters" />
+      <module name="ESearch" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="gateway" options="-parameters" />
-      <module name="getStockDaily" options="-parameters" />
-      <module name="querybycategory" options="-parameters" />
       <module name="stock" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
