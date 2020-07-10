@@ -83,11 +83,13 @@ public class UserServiceImpl implements UserService {
         String cipherText=encryption.encrypt(password);
         if (!user.getPassword().equals(cipherText)) {
             res.put("message", "密码错误");
+            return res;
         }
 
         String authorizeToken = encryptService.getMD5Code(email);
         res.put("token", authorizeToken);
         res.put("username", user.getUsername());
+        res.put("state", true);
         redisProvider.setAuthorizeToken(authorizeToken, email);
 
         return res;
@@ -121,7 +123,7 @@ public class UserServiceImpl implements UserService {
     public JSONObject getCaptcha(String email) {
         JSONObject res = new JSONObject();
 
-        int captcha = (int) (Math.random()*10000);
+        int captcha = (int) ((Math.random() * 0.9 + 0.1)*10000);
 
         mailService.sendSimpleMail(email, "韭菜之家-邮箱验证码", "请确认您的验证码：" + captcha);
 

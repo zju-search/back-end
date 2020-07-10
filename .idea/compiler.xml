@@ -2,16 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="gateway" />
-        <module name="common" />
         <module name="stock" />
+        <module name="common" />
+        <module name="realtimePrice" />
         <module name="ESearch" />
+        <module name="querybycategory" />
         <module name="consumer" />
+        <module name="PriceCenter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,9 +25,12 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ESearch" options="-parameters" />
+      <module name="PriceCenter" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="consumer" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="querybycategory" options="-parameters" />
+      <module name="realtimePrice" options="-parameters" />
       <module name="stock" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>

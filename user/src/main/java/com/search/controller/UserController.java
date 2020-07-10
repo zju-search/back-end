@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.security.NoSuchAlgorithmException;
 
 @RestController
-@RequestMapping("/api")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class UserController {
     @Resource
     UserService userService;

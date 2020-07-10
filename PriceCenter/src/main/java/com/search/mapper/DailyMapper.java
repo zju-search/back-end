@@ -11,7 +11,7 @@ public interface DailyMapper {
 
     List<StockInfo> SelectByMarket(String market, String date);
 
-    List<StockInfo> SelectByDate(String date);
+    List<StockInfo> SelectAll();
 
     int insert(Daily record);
 

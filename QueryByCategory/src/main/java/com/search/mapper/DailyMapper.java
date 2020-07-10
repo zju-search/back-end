@@ -9,7 +9,7 @@ public interface DailyMapper {
 
     String GetMaxDate();
 
-    List<StockInfo> SelectByMarket(String market, String date);
+    List<StockInfo> SelectByMarket(String market);
 
     int insert(Daily record);
 

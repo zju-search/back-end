@@ -10,6 +10,9 @@
         <module>consumer</module>
         <module>gateway</module>
         <module>ESearch</module>
+        <module>realtimePrice</module>
+        <module>PriceCenter</module>
+        <module>QueryByCategory</module>
     </modules>
 
     <parent>

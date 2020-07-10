@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.RealtimeMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.Realtime">
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+  </resultMap>
+
+  <resultMap id="PriceMap" type="com.search.model.Price">
+    <result column="time" jdbcType="VARCHAR" property="dtime" />
+    <result column="value" jdbcType="VARCHAR" property="price" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from realtime_all order by ts_code
+  </select>
+
+  <select id="selectIndex" resultMap="PriceMap">
+    select time, value from realtime
+    where ts_code = #{tscode,jdbcType=VARCHAR} limit 1
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.Realtime">
+    insert into realtime (ts_code, `time`, `value`
+      )
+    values (#{tsCode,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.Realtime">
+    insert into realtime
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="value != null">
+        `value`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

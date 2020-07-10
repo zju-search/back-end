@@ -17,8 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @EnableFeignClients
 public class ConsumerApplication {
-    @LoadBalanced
-    @Bean
+    @Bean(name = "remoteRestTemplate")
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
@@ -39,7 +38,7 @@ public class ConsumerApplication {
 
         @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
         public String echo(@PathVariable String str) {
-            return restTemplate.getForObject("http://service-consumer/echo/" + str, String.class);
+            return restTemplate.getForObject("http://39.99.218.252:8080/echo/" + str, String.class);
         }
     }
 }

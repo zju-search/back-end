@@ -1,0 +1,11 @@
+com\search\model\StockInfo.class
+com\search\model\StockList.class
+com\search\service\QueryByCategoryServiceImpl.class
+com\search\service\QueryByCategoryService.class
+com\search\mapper\DailyMapper.class
+com\search\QueryByCategoryApplication.class
+com\search\model\Realtime.class
+com\search\controller\QueryByCategoryController.class
+com\search\mapper\StockListMapper.class
+com\search\model\Daily.class
+com\search\model\DailyBasic.class
