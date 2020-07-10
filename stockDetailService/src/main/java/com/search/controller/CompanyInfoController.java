@@ -6,20 +6,19 @@ import com.search.dto.CompanyInfoListMessage;
 import com.search.dto.Message;
 import com.search.mapper.CompanyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class CompanyInfoController {
     @Autowired
     CompanyMapper companyMapper;
 
 
-    @GetMapping(value = "/api/CompanyInfo")
+    @PostMapping(value = "/CompanyInfo")
     public Message getCompanyInfo(@RequestParam("symbol") String symbol)
     {
         CompanyInfoListMessage message = new CompanyInfoListMessage();
