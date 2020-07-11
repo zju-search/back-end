@@ -8,6 +8,7 @@ public class PastData {
     double close;
     double max;
     double min;
+    String trade_date;
     String time;
     double vol;
     double amount;

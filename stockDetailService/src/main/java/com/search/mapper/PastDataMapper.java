@@ -10,8 +10,9 @@ import java.util.List;
 public interface PastDataMapper {
 
 
-    @Select("select trade_date as time,open,close,high as max,low as min,vol,amount " +
+    @Select("select trade_date,open,close,high as max,low as min,vol,amount " +
             "from daily " +
             "where ts_code = #{ts_code} and trade_date >= '20200101'  ")
     List<PastData> getPastData(String ts_code);
+
 }
