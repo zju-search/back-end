@@ -26,18 +26,26 @@ public class GetDataController {
     @Autowired
     GetTodayDataService getTodayDataService;
 
-    private final RestTemplate restTemplate;
-
-    public GetDataController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
     @PostMapping(value = "/getHistoryData")
-    public Message getPastData(@RequestParam("ts_code")String ts_code){
+    public Message getPastData(@RequestParam("symbol")String symbol){
         PastDataListMessage message = new PastDataListMessage();
         List<PastData> pastDataList = new ArrayList<>();
 
+        String ts_code;
+        if(symbol.compareTo("400000")<0){
+            ts_code = symbol+".SZ";
+        }
+        else{
+            ts_code = symbol +".SH";
+        }
         pastDataList = pastDataMapper.getPastData(ts_code);
+
+        for(PastData pastData:pastDataList){
+            String trade_date = pastData.getTrade_date();
+            String time = trade_date.substring(0,4)+"-"+trade_date.substring(4,6)
+                    +"-"+trade_date.substring(6);
+            pastData.setTime(time);
+        }
 
 
         message.setPastDataList(pastDataList);
@@ -47,10 +55,12 @@ public class GetDataController {
     }
 
     @PostMapping(value = "/getDataToday")
-    public Message getTodayData(@RequestParam("ts_code") String ts_code){
+    public Message getTodayData(@RequestParam("symbol") String symbol){
         TodayDataListMessage message = new TodayDataListMessage();
 
         List<TodayData> todayDataList = new ArrayList<>();
+        String ts_code = "000300.SH";
+
         todayDataList = getTodayDataService.getTodayData(ts_code);
 
         message.setTodayDataList(todayDataList);
