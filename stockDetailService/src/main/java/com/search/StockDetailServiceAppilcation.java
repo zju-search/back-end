@@ -12,8 +12,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @EnableFeignClients
 public class StockDetailServiceAppilcation {
-    @LoadBalanced
-    @Bean
+
+    @Bean(name = "remoteRestTemplate")
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
