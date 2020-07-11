@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.HoldernumberMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.Holdernumber">
+    <result column="index" jdbcType="BIGINT" property="index" />
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="ann_date" jdbcType="VARCHAR" property="annDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="holder_num" jdbcType="BIGINT" property="holderNum" />
+  </resultMap>
+  <resultMap id="HNInfoMap" type="com.search.model.HNInfo">
+    <result column="ann_date" jdbcType="VARCHAR" property="ann_date" />
+    <result column="end_date" jdbcType="VARCHAR" property="end_date" />
+    <result column="holder_num" jdbcType="BIGINT" property="holder_num" />
+  </resultMap>
+
+  <select id="selectByTscode" parameterType="java.lang.String" resultMap="HNInfoMap">
+    select ann_date, end_date, holder_num from stk_holdernumber
+    where ts_code like #{tscode,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.Holdernumber">
+    insert into stk_holdernumber (`index`, ts_code, ann_date, 
+      end_date, holder_num)
+    values (#{index,jdbcType=BIGINT}, #{tsCode,jdbcType=VARCHAR}, #{annDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{holderNum,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.Holdernumber">
+    insert into stk_holdernumber
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        `index`,
+      </if>
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="annDate != null">
+        ann_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="holderNum != null">
+        holder_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        #{index,jdbcType=BIGINT},
+      </if>
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="annDate != null">
+        #{annDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="holderNum != null">
+        #{holderNum,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

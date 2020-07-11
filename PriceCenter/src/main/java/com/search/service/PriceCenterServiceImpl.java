@@ -6,12 +6,10 @@ import com.search.mapper.DailyMapper;
 import com.search.model.Price;
 import com.search.model.Realtime;
 import com.search.model.StockInfo;
-import com.search.provider.RedisProvider;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,8 +18,6 @@ public class PriceCenterServiceImpl implements PriceCenterService {
 
     @Resource
     DailyMapper dailyMapper;
-    @Resource
-    RedisProvider redisProvider;
 
     private final RestTemplate restTemplate;
 
@@ -33,15 +29,8 @@ public class PriceCenterServiceImpl implements PriceCenterService {
     public JSONObject GetAllInfo() {
         JSONObject res = new JSONObject();
 
-        long startTime = System.currentTimeMillis();
-
         JSONArray curPrice = restTemplate.getForObject("http://47.115.28.231:8092/getRealtimeAll", JSONArray.class);
-
-        long endTime1 = System.currentTimeMillis();
-
         List<Realtime> curPriceList = JSONObject.parseArray(curPrice.toJSONString(), Realtime.class);
-
-        long endTime2 = System.currentTimeMillis();
 
         List<StockInfo> stockInfoList = dailyMapper.SelectAll();
 
@@ -50,6 +39,7 @@ public class PriceCenterServiceImpl implements PriceCenterService {
         while (iterator.hasNext()) {
             StockInfo temp = (StockInfo) iterator.next();
             String ts_code = temp.getTsCode();
+            double amount = temp.getAmount();
 
             Realtime r_temp = curPriceList.get(index++);
             while (!r_temp.getTsCode().equals(ts_code)) {
@@ -57,31 +47,28 @@ public class PriceCenterServiceImpl implements PriceCenterService {
             }
             String curStrPrice = r_temp.getValue();
             double currentPrice = Double.parseDouble(curStrPrice);
-
             temp.setCurrentPrice(currentPrice);
-            temp.setChange(currentPrice - temp.getClose());
+            temp.setChange(Double.parseDouble(String.format("%.2f", currentPrice-temp.getClose())));
             Double pctChg = temp.getChange() / temp.getClose() * 100;
-            temp.setPctChg(Double.parseDouble(String.format("%.2f", pctChg)));
+            temp.setAmount(Double.parseDouble(String.format("%.2f", amount )));
+            temp.setPctChg(Double.parseDouble(String.format("%.2f", pctChg )));
         }
 
-        JSONArray indices = restTemplate.getForObject("http://47.115.28.231:8092/getIndex/600300.SH", JSONArray.class);
+        JSONArray indices = restTemplate.getForObject("http://47.115.28.231:8092/getIndex/000300.SH", JSONArray.class);
+        List<Price> priceList = JSONObject.parseArray(indices.toJSONString(), Price.class);
         if (indices.size() == 1) {
-            List<Price> priceList = JSONObject.parseArray(indices.toJSONString(), Price.class);
             if (priceList.get(0).getDtime().equals("out of date")) {
                 res.put("indices", null);
             }
         }
         if (res.isEmpty()) {
-            res.put("indices", indices);
+            iterator = priceList.iterator();
+            while (iterator.hasNext()) {
+                Price temp = (Price) iterator.next();
+                temp.setPrice(Double.parseDouble(String.format("%.2f", temp.getPrice())));
+            }
+            res.put("indices", priceList);
         }
-
-        long endTime = System.currentTimeMillis(); //获取结束时间
-        System.out.println("程序运行时间1： " + (endTime1 - startTime) + "ms");
-
-        System.out.println("程序运行时间2： " + (endTime2 - endTime1) + "ms");
-
-        System.out.println("程序运行时间3： " + (endTime - endTime2) + "ms");
-
         res.put("stocks", stockInfoList);
         res.put("state", true);
 

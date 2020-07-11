@@ -18,7 +18,7 @@
 
   <select id="selectIndex" resultMap="PriceMap">
     select time, value from realtime
-    where ts_code = #{tscode,jdbcType=VARCHAR} limit 1
+    where ts_code = #{tscode,jdbcType=VARCHAR}
   </select>
 
   <insert id="insert" parameterType="com.search.model.Realtime">

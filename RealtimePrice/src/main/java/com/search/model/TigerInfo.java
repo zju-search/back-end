@@ -5,8 +5,11 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class Price implements Serializable {
-    String dtime;
-    double price;
+public class TigerInfo implements Serializable {
+
+    private String ts_code;
+
+    private String name;
+
     private static final long serialVersionUID = 1L;
 }

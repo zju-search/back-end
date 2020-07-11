@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.ExpressMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.Express">
+    <result column="index" jdbcType="BIGINT" property="index" />
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="ann_date" jdbcType="VARCHAR" property="annDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="revenue" jdbcType="DOUBLE" property="revenue" />
+    <result column="operate_profit" jdbcType="DOUBLE" property="operateProfit" />
+    <result column="total_profit" jdbcType="DOUBLE" property="totalProfit" />
+    <result column="n_income" jdbcType="DOUBLE" property="nIncome" />
+    <result column="total_assets" jdbcType="DOUBLE" property="totalAssets" />
+    <result column="total_hldr_eqy_exc_min_int" jdbcType="DOUBLE" property="totalHldrEqyExcMinInt" />
+    <result column="diluted_eps" jdbcType="DOUBLE" property="dilutedEps" />
+    <result column="diluted_roe" jdbcType="DOUBLE" property="dilutedRoe" />
+    <result column="yoy_net_profit" jdbcType="DOUBLE" property="yoyNetProfit" />
+    <result column="bps" jdbcType="VARCHAR" property="bps" />
+    <result column="perf_summary" jdbcType="VARCHAR" property="perfSummary" />
+  </resultMap>
+
+  <select id="selectByTscode" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from express
+    where ts_code like #{tscode, jdbcType=VARCHAR} order by end_date desc limit 1
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.Express">
+    insert into express (`index`, ts_code, ann_date, 
+      end_date, revenue, operate_profit, 
+      total_profit, n_income, total_assets, 
+      total_hldr_eqy_exc_min_int, diluted_eps, diluted_roe, 
+      yoy_net_profit, bps, perf_summary
+      )
+    values (#{index,jdbcType=BIGINT}, #{tsCode,jdbcType=VARCHAR}, #{annDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{revenue,jdbcType=DOUBLE}, #{operateProfit,jdbcType=DOUBLE}, 
+      #{totalProfit,jdbcType=DOUBLE}, #{nIncome,jdbcType=DOUBLE}, #{totalAssets,jdbcType=DOUBLE}, 
+      #{totalHldrEqyExcMinInt,jdbcType=DOUBLE}, #{dilutedEps,jdbcType=DOUBLE}, #{dilutedRoe,jdbcType=DOUBLE}, 
+      #{yoyNetProfit,jdbcType=DOUBLE}, #{bps,jdbcType=VARCHAR}, #{perfSummary,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.Express">
+    insert into express
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        `index`,
+      </if>
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="annDate != null">
+        ann_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="revenue != null">
+        revenue,
+      </if>
+      <if test="operateProfit != null">
+        operate_profit,
+      </if>
+      <if test="totalProfit != null">
+        total_profit,
+      </if>
+      <if test="nIncome != null">
+        n_income,
+      </if>
+      <if test="totalAssets != null">
+        total_assets,
+      </if>
+      <if test="totalHldrEqyExcMinInt != null">
+        total_hldr_eqy_exc_min_int,
+      </if>
+      <if test="dilutedEps != null">
+        diluted_eps,
+      </if>
+      <if test="dilutedRoe != null">
+        diluted_roe,
+      </if>
+      <if test="yoyNetProfit != null">
+        yoy_net_profit,
+      </if>
+      <if test="bps != null">
+        bps,
+      </if>
+      <if test="perfSummary != null">
+        perf_summary,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        #{index,jdbcType=BIGINT},
+      </if>
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="annDate != null">
+        #{annDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="revenue != null">
+        #{revenue,jdbcType=DOUBLE},
+      </if>
+      <if test="operateProfit != null">
+        #{operateProfit,jdbcType=DOUBLE},
+      </if>
+      <if test="totalProfit != null">
+        #{totalProfit,jdbcType=DOUBLE},
+      </if>
+      <if test="nIncome != null">
+        #{nIncome,jdbcType=DOUBLE},
+      </if>
+      <if test="totalAssets != null">
+        #{totalAssets,jdbcType=DOUBLE},
+      </if>
+      <if test="totalHldrEqyExcMinInt != null">
+        #{totalHldrEqyExcMinInt,jdbcType=DOUBLE},
+      </if>
+      <if test="dilutedEps != null">
+        #{dilutedEps,jdbcType=DOUBLE},
+      </if>
+      <if test="dilutedRoe != null">
+        #{dilutedRoe,jdbcType=DOUBLE},
+      </if>
+      <if test="yoyNetProfit != null">
+        #{yoyNetProfit,jdbcType=DOUBLE},
+      </if>
+      <if test="bps != null">
+        #{bps,jdbcType=VARCHAR},
+      </if>
+      <if test="perfSummary != null">
+        #{perfSummary,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

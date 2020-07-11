@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="user" />
         <module name="gateway" />
+        <module name="NavigateToPage" />
         <module name="stock" />
         <module name="common" />
         <module name="realtimePrice" />
@@ -25,6 +26,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ESearch" options="-parameters" />
+      <module name="NavigateToPage" options="-parameters" />
       <module name="PriceCenter" options="-parameters" />
       <module name="common" options="-parameters" />
       <module name="consumer" options="-parameters" />

@@ -13,6 +13,7 @@
         <module>realtimePrice</module>
         <module>PriceCenter</module>
         <module>QueryByCategory</module>
+        <module>NavigateToPage</module>
     </modules>
 
     <parent>
