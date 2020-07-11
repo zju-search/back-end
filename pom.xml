@@ -9,6 +9,7 @@
         <module>gateway</module>
         <module>filterService</module>
         <module>stockDetailService</module>
+        <module>Esearch</module>
     </modules>
 
     <parent>
