@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="000001.SZ">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="StockDailyMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="StockDaily" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="000001.SZ" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/getStockDaily" />
+              <option name="tableName" value="000001.SZ" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="daily">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="DailyMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Daily" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="daily" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/PriceCenter" />
+              <option name="tableName" value="daily" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="daily_basic">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="DailyBasicMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="DailyBasic" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="daily_basic" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/QueryByCategory" />
+              <option name="tableName" value="daily_basic" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="express">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="ExpressMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Express" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="express" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/NavigateToPage" />
+              <option name="tableName" value="express" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="new_daily">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="NewDailyMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="NewDaily" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="new_daily" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/PriceCenter" />
+              <option name="tableName" value="new_daily" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="new_daily_top_list">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="TigerMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Tiger" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="new_daily_top_list" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/RealtimePrice" />
+              <option name="tableName" value="new_daily_top_list" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="pledge_stat">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="PledgeStatMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="PledgeStat" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="pledge_stat" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/NavigateToPage" />
+              <option name="tableName" value="pledge_stat" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="realtime">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="RealtimeMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Realtime" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="realtime" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/RealtimePrice" />
+              <option name="tableName" value="realtime" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="stk_holdernumber">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="HoldernumberMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Holdernumber" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="stk_holdernumber" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/NavigateToPage" />
+              <option name="tableName" value="stk_holdernumber" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="stock_list">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="StockListMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="StockList" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="stock_list" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/PriceCenter" />
+              <option name="tableName" value="stock_list" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="top10_holders">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="TopHolderMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="TopHolder" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="top10_holders" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/NavigateToPage" />
+              <option name="tableName" value="top10_holders" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="user">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="UserMapper" />
+              <option name="daoPackage" value="com.search.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="User" />
+              <option name="modelPackage" value="com.search.model" />
+              <option name="name" value="user" />
+              <option name="overrideJava" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="" />
+              <option name="projectFolder" value="$PROJECT_DIR$/user" />
+              <option name="tableName" value="user" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="009baa6f-d089-4508-91b0-11be2e800e21" port="22" customName="spring cloud" nameFormat="CUSTOM" username="root" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="4b849724-b709-43f8-9b36-53169e499dc6" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="7af148ee-5133-49f4-8695-59ea5d8e4d86" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="93c43072-dab9-470c-8bdd-4beda255b5e7" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="90b05d14-a554-4b15-9bdb-4a5512180a58" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="612f1a79-a096-4c2b-a998-9687cdbddbd2" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="b9218779-a682-4d9f-8eab-ba851a566ed4" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="ef43969b-d3d0-4c67-aab9-57cb5995c929" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="ffd0d8f2-e96e-4fe7-ae91-ac0cee8e41e3" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="6c5b50d6-706d-40c7-a472-145dd1aa355d" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="86add958-12f0-4355-b564-d32c11163de8" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="72632709-ba9a-4681-bd6b-b33710c8bb77" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="f0e6dc76-f1bc-44b6-9e79-1db83a1f251e" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="da1cb009-f104-4c40-9082-c426fec32113" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="9f39b1e7-7992-4150-ba08-f88f80d58ddf" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+      <sshConfig authType="PASSWORD" host="39.99.218.252" id="1d320a37-ad10-40ff-9eab-c3c735a8abbd" port="22" customName="spring cloud" nameFormat="CUSTOM" />
+    </configs>
+  </component>
+</project>

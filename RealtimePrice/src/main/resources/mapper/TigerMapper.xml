@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.TigerMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.Tiger">
+    <result column="trade_date" jdbcType="VARCHAR" property="tradeDate" />
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="close" jdbcType="DOUBLE" property="close" />
+    <result column="pct_change" jdbcType="DOUBLE" property="pctChange" />
+    <result column="turnover_rate" jdbcType="DOUBLE" property="turnoverRate" />
+    <result column="amount" jdbcType="DOUBLE" property="amount" />
+    <result column="l_sell" jdbcType="DOUBLE" property="lSell" />
+    <result column="l_buy" jdbcType="DOUBLE" property="lBuy" />
+    <result column="l_amount" jdbcType="DOUBLE" property="lAmount" />
+    <result column="net_amount" jdbcType="DOUBLE" property="netAmount" />
+    <result column="net_rate" jdbcType="DOUBLE" property="netRate" />
+    <result column="amount_rate" jdbcType="DOUBLE" property="amountRate" />
+    <result column="float_values" jdbcType="DOUBLE" property="floatValues" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+  </resultMap>
+  <resultMap id="TigerInfoMap" type="com.search.model.TigerInfo">
+    <result column="ts_code" jdbcType="VARCHAR" property="ts_code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+
+  <select id="selectByPCT" resultMap="TigerInfoMap">
+    select ts_code, name from new_daily_top_list
+    order by pct_change desc limit 5
+  </select>
+
+  <select id="selectByTurnover" resultMap="TigerInfoMap">
+    select ts_code, name from new_daily_top_list
+    order by turnover_rate desc limit 5
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.Tiger">
+    insert into new_daily_top_list (trade_date, ts_code, `name`, 
+      `close`, pct_change, turnover_rate, 
+      amount, l_sell, l_buy, l_amount, 
+      net_amount, net_rate, amount_rate, 
+      float_values, reason)
+    values (#{tradeDate,jdbcType=VARCHAR}, #{tsCode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{close,jdbcType=DOUBLE}, #{pctChange,jdbcType=DOUBLE}, #{turnoverRate,jdbcType=DOUBLE}, 
+      #{amount,jdbcType=DOUBLE}, #{lSell,jdbcType=DOUBLE}, #{lBuy,jdbcType=DOUBLE}, #{lAmount,jdbcType=DOUBLE}, 
+      #{netAmount,jdbcType=DOUBLE}, #{netRate,jdbcType=DOUBLE}, #{amountRate,jdbcType=DOUBLE}, 
+      #{floatValues,jdbcType=DOUBLE}, #{reason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.Tiger">
+    insert into new_daily_top_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tradeDate != null">
+        trade_date,
+      </if>
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="close != null">
+        `close`,
+      </if>
+      <if test="pctChange != null">
+        pct_change,
+      </if>
+      <if test="turnoverRate != null">
+        turnover_rate,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="lSell != null">
+        l_sell,
+      </if>
+      <if test="lBuy != null">
+        l_buy,
+      </if>
+      <if test="lAmount != null">
+        l_amount,
+      </if>
+      <if test="netAmount != null">
+        net_amount,
+      </if>
+      <if test="netRate != null">
+        net_rate,
+      </if>
+      <if test="amountRate != null">
+        amount_rate,
+      </if>
+      <if test="floatValues != null">
+        float_values,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tradeDate != null">
+        #{tradeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="close != null">
+        #{close,jdbcType=DOUBLE},
+      </if>
+      <if test="pctChange != null">
+        #{pctChange,jdbcType=DOUBLE},
+      </if>
+      <if test="turnoverRate != null">
+        #{turnoverRate,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="lSell != null">
+        #{lSell,jdbcType=DOUBLE},
+      </if>
+      <if test="lBuy != null">
+        #{lBuy,jdbcType=DOUBLE},
+      </if>
+      <if test="lAmount != null">
+        #{lAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="netAmount != null">
+        #{netAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="netRate != null">
+        #{netRate,jdbcType=DOUBLE},
+      </if>
+      <if test="amountRate != null">
+        #{amountRate,jdbcType=DOUBLE},
+      </if>
+      <if test="floatValues != null">
+        #{floatValues,jdbcType=DOUBLE},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

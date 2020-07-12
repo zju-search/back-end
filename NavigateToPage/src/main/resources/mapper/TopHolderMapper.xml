@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.search.mapper.TopHolderMapper">
+  <resultMap id="BaseResultMap" type="com.search.model.TopHolder">
+    <result column="index" jdbcType="VARCHAR" property="index" />
+    <result column="ts_code" jdbcType="VARCHAR" property="tsCode" />
+    <result column="ann_date" jdbcType="VARCHAR" property="annDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="holder_name" jdbcType="VARCHAR" property="holderName" />
+    <result column="hold_amount" jdbcType="VARCHAR" property="holdAmount" />
+    <result column="hold_ratio" jdbcType="VARCHAR" property="holdRatio" />
+  </resultMap>
+  <resultMap id="TopHolderInfoMap" type="com.search.model.TopHolderInfo">
+    <result column="ann_date" jdbcType="VARCHAR" property="ann_date" />
+    <result column="end_date" jdbcType="VARCHAR" property="end_date" />
+    <result column="holder_name" jdbcType="VARCHAR" property="holder_name" />
+    <result column="hold_amount" jdbcType="VARCHAR" property="hold_amount" />
+    <result column="hold_ratio" jdbcType="VARCHAR" property="hold_ratio" />
+  </resultMap>
+
+  <select id="selectByTscode" parameterType="java.lang.String" resultMap="TopHolderInfoMap">
+    select distinct ann_date, end_date, holder_name, hold_amount, hold_ratio from top10_holders where ts_code like #{tscode,jdbcType=VARCHAR}
+    and end_date = #{year,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.search.model.TopHolder">
+    insert into top10_holders (`index`, ts_code, ann_date, 
+      end_date, holder_name, hold_amount, 
+      hold_ratio)
+    values (#{index,jdbcType=VARCHAR}, #{tsCode,jdbcType=VARCHAR}, #{annDate,jdbcType=VARCHAR}, 
+      #{endDate,jdbcType=VARCHAR}, #{holderName,jdbcType=VARCHAR}, #{holdAmount,jdbcType=VARCHAR}, 
+      #{holdRatio,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.search.model.TopHolder">
+    insert into top10_holders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        `index`,
+      </if>
+      <if test="tsCode != null">
+        ts_code,
+      </if>
+      <if test="annDate != null">
+        ann_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="holderName != null">
+        holder_name,
+      </if>
+      <if test="holdAmount != null">
+        hold_amount,
+      </if>
+      <if test="holdRatio != null">
+        hold_ratio,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="index != null">
+        #{index,jdbcType=VARCHAR},
+      </if>
+      <if test="tsCode != null">
+        #{tsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="annDate != null">
+        #{annDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="holderName != null">
+        #{holderName,jdbcType=VARCHAR},
+      </if>
+      <if test="holdAmount != null">
+        #{holdAmount,jdbcType=VARCHAR},
+      </if>
+      <if test="holdRatio != null">
+        #{holdRatio,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

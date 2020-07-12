@@ -10,6 +10,10 @@
         <module>filterService</module>
         <module>stockDetailService</module>
         <module>Esearch</module>
+        <module>realtimePrice</module>
+        <module>PriceCenter</module>
+        <module>QueryByCategory</module>
+        <module>NavigateToPage</module>
     </modules>
 
     <parent>
