@@ -32,7 +32,18 @@ public class SearchController {
             System.out.println("JsonStr:"+newsStr);
             News news = new News();
             news  = JSONObject.parseObject(newsStr,News.class);
-            newsList.add(news);
+            String currentTitle = news.getTitle();
+            boolean redundant = false;
+            for(int j = 0;j<newsList.size();j++){
+                if(newsList.get(j).getTitle().equals(currentTitle)){
+                    redundant = true;
+                    break;
+                }
+            }
+
+            if(!redundant){
+                newsList.add(news);
+            }
         }
 
         message.setNewsList(newsList);
