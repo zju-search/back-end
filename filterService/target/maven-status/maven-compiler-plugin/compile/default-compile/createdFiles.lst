@@ -1,0 +1,6 @@
+com\search\mapper\LeaderboardMapper.class
+com\search\controller\LeadorboardController.class
+com\search\dto\Message.class
+com\search\dto\RankedObjectListMessage.class
+com\search\dto\RankedObject.class
+com\search\FilterServiceAppilcation.class
