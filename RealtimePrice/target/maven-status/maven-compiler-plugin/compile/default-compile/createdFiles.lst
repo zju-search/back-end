@@ -1,7 +1,0 @@
-com\search\mapper\RealtimeMapper.class
-com\search\controller\RealtimePriceController.class
-com\search\RealtimePriceApplication.class
-com\search\service\RealtimeService.class
-com\search\service\RealtimeServiceImpl.class
-com\search\model\Price.class
-com\search\model\Realtime.class
