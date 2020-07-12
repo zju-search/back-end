@@ -32,7 +32,8 @@ public class ESearchService {
             String sourceAsString = hit.getSourceAsString();
             HashMap<String, String> hashMap = new HashMap<String, String>();
             hashMap = JSON.parseObject(sourceAsString, hashMap.getClass());
-            String s = hashMap.get(param);
+            String s = "{"+"\"title\":"+"\""+hashMap.get("title")+"\""+","
+                    +"\"content\":"+"\""+hashMap.get("content")+"\""+"}";
             results.add(s);
         }
         return results;

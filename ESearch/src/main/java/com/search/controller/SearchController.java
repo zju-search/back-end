@@ -1,40 +1,19 @@
 package com.search.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.search.dto.Message;
+import com.search.dto.News;
+import com.search.dto.NewsListMessage;
 import com.search.service.ESearchService;
-import org.apache.http.HttpHost;
-import org.elasticsearch.action.delete.DeleteRequest;
-import org.elasticsearch.action.delete.DeleteResponse;
-import org.elasticsearch.action.get.GetRequest;
-import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.action.update.UpdateResponse;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.TermQueryBuilder;
-import org.elasticsearch.search.SearchHit;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class SearchController {
     final ESearchService esearchService;
 
@@ -42,9 +21,24 @@ public class SearchController {
         this.esearchService = es;
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public ArrayList<String> search(@RequestParam("index") String index, @RequestParam("param") String param, @RequestParam("value") String value) throws IOException {
-        ArrayList<String> search = esearchService.Search(index, param, value);
-        return search;
+    @RequestMapping(value = "/news", method = RequestMethod.POST)
+    public Message search(@RequestParam("param") String param, @RequestParam("query") String value) throws IOException {
+        NewsListMessage message = new NewsListMessage();
+        List<News> newsList = new ArrayList<>();
+        ArrayList<String> search = esearchService.Search("news", param, value);
+
+        for(int i=0;i<search.size();i++){
+            String newsStr = search.get(i);
+            System.out.println("JsonStr:"+newsStr);
+            News news = new News();
+            news  = JSONObject.parseObject(newsStr,News.class);
+            newsList.add(news);
+        }
+
+        message.setNewsList(newsList);
+        message.setState(true);
+        message.setMessage("新闻获取成功");
+
+        return message;
     }
 }
